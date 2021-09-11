@@ -1,5 +1,6 @@
 {
-  "compilerOptions": { // Instructs the TypeScript compiler how to compile .ts files.
+  "compilerOptions": {
+    // Instructs the TypeScript compiler how to compile .ts files.
     "baseUrl": "./",
     "outDir": "./dist", // Specify an output folder for all emitted files.
     "module": "CommonJS", // Specify what module code is generated.
