@@ -12,7 +12,7 @@ const makeSut = (): SutTypes => {
   const emailValidatorStub = makeEmailValidator()
   const addAccountStub = makeAddAccount()
 
-  const sut = new SignUpController(emailValidatorStub, addAccountStub)
+  const sut = new SignUpController(addAccountStub, emailValidatorStub)
 
   return { sut, emailValidatorStub, addAccountStub }
 }
