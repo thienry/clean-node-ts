@@ -1,4 +1,4 @@
-import config from './jest.config.json'
+import config from './jest.config.js'
 
 config.testMatch = ['**/*.test.ts']
 
