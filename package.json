@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "test:staged": "jest --passWithNoTests",
+    "prepare": "husky install",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:ci": "npm test -- --coverage",
     "test:clean:cache": "jest --clearCache",
-    "prepare": "husky install"
+    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:verbose": "jest --passWithNoTests --runInBand"
   },
   "keywords": [],
   "author": "Thiago Moura <thmoura14@gmail.com>",

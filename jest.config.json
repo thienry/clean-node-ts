@@ -1,6 +1,5 @@
 {
   "clearMocks": false,
-  "collectCoverage": true,
   "coverageProvider": "v8",
   "testEnvironment": "node",
   "roots": ["<rootDir>/src"],
