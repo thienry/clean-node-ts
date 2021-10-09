@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 import { DbAddAccount } from './db-add-account.usecase'
 import { Encrypter } from '../../protocols/encrypter.protocol'
 
@@ -18,6 +19,7 @@ const makeEncrypter = (): Encrypter => {
 const makeSut = (): SutTypes => {
   const encrypterStub = makeEncrypter()
   const sut = new DbAddAccount(encrypterStub)
+
   return { sut, encrypterStub }
 }
 
@@ -33,5 +35,21 @@ describe('DbAddAccount Usecase', () => {
 
     await sut.add(accountData)
     expect(encryptSpy).toHaveBeenCalledWith('valid_password')
+  })
+
+  test('Should throw an error if Encrypter throws', async () => {
+    const { sut, encrypterStub } = makeSut()
+
+    jest.spyOn(encrypterStub, 'encrypt')
+      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+
+    const accountData = {
+      name: 'valid_name',
+      email: 'valid_email@mail.com',
+      password: 'valid_password'
+    }
+
+    const promise = sut.add(accountData)
+    await expect(promise).rejects.toThrow()
   })
 })
