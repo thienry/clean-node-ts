@@ -9,8 +9,8 @@ export class DbAddAccount implements AddAccount {
     await this.encrypter.encrypt(account.password)
     return await new Promise(resolve => resolve({
       id: '',
-      email: '',
       name: '',
+      email: '',
       password: ''
     }))
   }
