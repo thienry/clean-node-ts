@@ -1,6 +1,5 @@
-/* eslint-disable no-trailing-spaces */
+import { Encrypter } from './db-add-account.protocols'
 import { DbAddAccount } from './db-add-account.usecase'
-import { Encrypter } from '../../protocols/encrypter.protocol'
 
 interface SutTypes {
   sut: DbAddAccount
